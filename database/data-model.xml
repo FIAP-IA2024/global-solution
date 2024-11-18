@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://sql.toad.cz/?keyword=online_library -->
+<sql>
+  <datatypes db="mysql">
+    <group label="Numeric" color="rgb(238,238,170)">
+      <type label="Integer" length="0" sql="INTEGER" quote="" />
+      <type label="INT" length="0" sql="INT" quote="" />
+      <type label="REAL" length="0" sql="REAL" quote="" />
+    </group>
+    <group label="Character" color="rgb(255,200,200)">
+      <type label="Text" length="0" sql="TEXT" quote="'" />
+    </group>
+    <group label="Date &amp; Time" color="rgb(200,255,200)">
+      <type label="Datetime" length="0" sql="DATETIME" quote="'" />
+      <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'" />
+    </group>
+    <group label="Boolean" color="rgb(200,200,255)">
+      <type label="Boolean" length="0" sql="BOOLEAN" quote="" />
+    </group>
+  </datatypes>
+  <table x="100" y="100" name="room">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INT</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="name" null="0" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>'NULL'</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="400" y="100" name="energy_consumption">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INT</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="timestamp" null="0" autoincrement="0">
+      <datatype>DATETIME</datatype>
+      <default>CURRENT_TIMESTAMP</default>
+    </row>
+    <row name="room_id" null="0" autoincrement="0">
+      <datatype>INT</datatype>
+      <default>NULL</default>
+      <relation table="room" row="id" />
+    </row>
+    <row name="presence" null="0" autoincrement="0">
+      <datatype>BOOLEAN</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="light_level" null="0" autoincrement="0">
+      <datatype>INT</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="energy_consumption" null="0" autoincrement="0">
+      <datatype>REAL</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="relay_status" null="0" autoincrement="0">
+      <datatype>BOOLEAN</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+</sql>

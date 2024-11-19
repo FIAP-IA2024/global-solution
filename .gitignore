@@ -2,3 +2,9 @@
 
 database/data.db
 database/*.csv
+
+app/__pycache__
+app/venv
+app/.env*
+!app/.env.example
+!app/.env.example

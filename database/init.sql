@@ -1,5 +1,5 @@
 CREATE TABLE
-  zones (
+  zone (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50) NOT NULL, -- Name of the zone (e.g., "Living Room", "Kitchen")
     description TEXT
@@ -14,7 +14,7 @@ CREATE TABLE
     power REAL, -- Power consumption in watts (optional, for energy-consuming devices)
     description TEXT,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (zone_id) REFERENCES zones (id)
+    FOREIGN KEY (zone_id) REFERENCES zone (id)
   );
 
 CREATE TABLE
@@ -30,7 +30,7 @@ CREATE TABLE
 
 -- Insert some sample zones
 INSERT INTO
-  zones (name, description)
+  zone (name, description)
 VALUES
   ('Living Room', 'Main area of the house'),
   ('Kitchen', 'Cooking and dining area'),
@@ -39,7 +39,7 @@ VALUES
 
 -- Insert some sample devices
 INSERT INTO
-  devices (name, type, zone_id, power, description)
+  device (name, type, zone_id, power, description)
 VALUES
   (
     'Ceiling Lamp',

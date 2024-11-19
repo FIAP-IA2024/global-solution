@@ -259,3 +259,41 @@ def get_consumption_by_device():
         }
         for row in result
     ]
+
+
+def get_consumption_by_period(period):
+    """Fetch total consumption (kWh) grouped by zone and filtered by period."""
+    connection = connect()
+    period_filter = {
+        "Diário": "strftime('%Y-%m-%d', de.timestamp) AS period",
+        "Semanal": "strftime('%Y-%W', de.timestamp) AS period",
+        "Mensal": "strftime('%Y-%m', de.timestamp) AS period",
+    }
+
+    query = f"""
+    SELECT 
+        z.name AS zone_name,
+        {period_filter[period]},
+        SUM(de.numeric_value) AS total_consumption
+    FROM zone z
+    LEFT JOIN device d ON z.id = d.zone_id
+    LEFT JOIN device_event de ON d.id = de.device_id
+    WHERE de.type = 'energy-consumption'
+    GROUP BY period, z.name
+    ORDER BY period
+    """
+
+    cursor = connection.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connection.close()
+
+    # Convert results to a list of dictionaries
+    return [
+        {
+            "Zona": row[0],
+            "Período": row[1],
+            "Consumo Total (kWh)": round(row[2] if row[2] else 0, 2),
+        }
+        for row in result
+    ]

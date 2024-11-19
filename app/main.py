@@ -12,6 +12,7 @@ from database import (
     get_cost_by_zone,
     get_consumption_by_zone,
     get_consumption_by_device,
+    get_consumption_by_period,
 )
 
 # Application title
@@ -115,6 +116,32 @@ if consumption_by_device:
     st.plotly_chart(fig_device, use_container_width=True)
 else:
     st.write("Nenhum dado de consumo disponível para os dispositivos.")
+
+# Separator for period details
+st.markdown("---")
+
+# Section: Details by Period
+st.header("Detalhes por Período")
+
+# Period selector
+period_option = st.selectbox("Selecione o Período", ["Diário", "Semanal", "Mensal"])
+
+# Fetch consumption by period from the database
+consumption_by_period = get_consumption_by_period(period_option)
+
+# Display results based on selected period
+if consumption_by_period:
+    df_period = pd.DataFrame(consumption_by_period)
+    st.subheader(f"Consumo {period_option} por Zona")
+    fig_period = px.bar(
+        df_period,
+        x="Zona",
+        y="Consumo Total (kWh)",
+        title=f"Consumo {period_option} por Zona",
+    )
+    st.plotly_chart(fig_period, use_container_width=True)
+else:
+    st.write(f"Nenhum dado de consumo disponível para o período {period_option}.")
 
 # Real-time updates
 while True:

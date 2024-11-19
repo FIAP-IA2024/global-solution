@@ -19,47 +19,81 @@
       <type label="Boolean" length="0" sql="BOOLEAN" quote="" />
     </group>
   </datatypes>
-  <table x="100" y="100" name="room">
+  <table x="352" y="150" name="device">
     <row name="id" null="0" autoincrement="1">
-      <datatype>INT</datatype>
+      <datatype>INTEGER</datatype>
       <default>NULL</default>
     </row>
     <row name="name" null="0" autoincrement="0">
-      <datatype>TEXT</datatype>
+      <datatype>INTEGER(50)</datatype>
       <default>'NULL'</default>
     </row>
-    <key type="PRIMARY" name="">
-      <part>id</part>
-    </key>
-  </table>
-  <table x="400" y="100" name="energy_consumption">
-    <row name="id" null="0" autoincrement="1">
-      <datatype>INT</datatype>
+    <row name="type" null="0" autoincrement="0">
+      <datatype>INTEGER(50)</datatype>
+      <default>'NULL'</default>
+    </row>
+    <row name="zone_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="zones" row="id" />
+    </row>
+    <row name="power" null="1" autoincrement="0">
+      <datatype>REAL</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="description" null="1" autoincrement="0">
+      <datatype>TEXT</datatype>
       <default>NULL</default>
     </row>
     <row name="timestamp" null="0" autoincrement="0">
       <datatype>DATETIME</datatype>
       <default>CURRENT_TIMESTAMP</default>
     </row>
-    <row name="room_id" null="0" autoincrement="0">
-      <datatype>INT</datatype>
-      <default>NULL</default>
-      <relation table="room" row="id" />
-    </row>
-    <row name="presence" null="0" autoincrement="0">
-      <datatype>BOOLEAN</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="light_level" null="0" autoincrement="0">
-      <datatype>INT</datatype>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="202" y="150" name="zones">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INTEGER</datatype>
       <default>NULL</default>
     </row>
-    <row name="energy_consumption" null="0" autoincrement="0">
+    <row name="name" null="0" autoincrement="0">
+      <datatype>INTEGER(50)</datatype>
+      <default>'NULL'</default>
+    </row>
+    <row name="description" null="1" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="502" y="151" name="device_event">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="device_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="device" row="id" />
+    </row>
+    <row name="type" null="0" autoincrement="0">
+      <datatype>INTEGER(50)</datatype>
+      <default>'NULL'</default>
+    </row>
+    <row name="timestamp" null="0" autoincrement="0">
+      <datatype>DATETIME</datatype>
+      <default>CURRENT_TIMESTAMP</default>
+    </row>
+    <row name="value" null="1" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="numeric_value" null="1" autoincrement="0">
       <datatype>REAL</datatype>
-      <default>NULL</default>
-    </row>
-    <row name="relay_status" null="0" autoincrement="0">
-      <datatype>BOOLEAN</datatype>
       <default>NULL</default>
     </row>
     <key type="PRIMARY" name="">

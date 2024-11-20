@@ -86,7 +86,7 @@ def main():
             print("Event saved to database.")
 
             # Wait for 10 seconds before generating the next event
-            time.sleep(10)
+            time.sleep(1)
     except KeyboardInterrupt:
         print("Exiting...")
         client.loop_stop()

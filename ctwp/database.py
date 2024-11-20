@@ -1,8 +1,8 @@
 import sqlite3
 import os
 
-DB_PATH = "./database/data.db"
-INIT_SQL_PATH = "./database/init.sql"
+DB_PATH = "./ctwp/database/data.db"
+INIT_SQL_PATH = "./ctwp/database/init.sql"
 DB_INITIALIZED = False
 
 

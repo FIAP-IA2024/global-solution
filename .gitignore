@@ -2,7 +2,7 @@
 
 cds/database/data.db
 ctwp/database/data.db
-database/*.csv
+scr/Rplots.pdf
 
 __pycache__
 venv

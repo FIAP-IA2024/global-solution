@@ -31,9 +31,9 @@ def dashboard():
     # Application title
     st.title("CTWP")
     st.write(
-        "**CTWP (Computational Thinking with Python)** é um sistema para gerenciamento de consumo energético, "
-        "focado na redução de custos e aumento da eficiência. Ele oferece monitoramento em tempo real, seleção de fontes econômicas "
-        "e relatórios detalhados para decisões informadas."
+        "**CTWP (Computational Thinking with Python)** é o seu assistente para monitoramento e otimização de consumo de energia. "
+        "Aqui você acompanha métricas em tempo real, identifica fontes de energia mais econômicas e visualiza relatórios detalhados "
+        "para tomar decisões informadas e reduzir custos."
     )
 
     # Separator for sections

@@ -11,6 +11,7 @@ Este projeto tem como objetivo fornecer uma solução para o **gerenciamento e o
 - **Filtros interativos**: Permite selecionar zonas, dispositivos e períodos específicos para visualizar os dados.
 - **Simulação de eventos**: O arquivo `mqtt.py` simula uma conexão entre um microcontrolador e a aplicação Python, enviando eventos dos dispositivos registrados, como leituras de sensores e consumo de energia.
 - **Análise histórica do consumo de energia elétrica no Brasil**: A aplicação inclui gráficos e relatórios baseados em dados históricos de consumo, utilizando fontes confiáveis, como a **Base dos Dados**.
+- **Análise Estatística com R**: Exploração de dados de projetos de eficiência energética disponibilizados pela **ANEEL**, utilizando estatísticas descritivas, gráficos e clusterização para identificar padrões e propor soluções sustentáveis.
 
 ---
 
@@ -36,6 +37,12 @@ ctwp/
 ├── main.py                                  # Aplicação principal do Streamlit para eficiência energética
 └── mqtt.py                                  # Simulação de comunicação via MQTT
 
+scr/
+├── analysis.r                               # Script R para análise exploratória
+├── projetos-eficiencia-energetica-empresa.csv  # Dados de empresas
+├── projetos-eficiencia-energetica-equipamento.csv  # Dados de equipamentos
+└── projetos-eficiencia-energetica-uso-final.csv  # Dados de uso final
+
 dashboard.py                                 # Dashboard unificado para CTWP e CDS
 requirements.txt                             # Dependências do projeto
 ```
@@ -48,17 +55,21 @@ requirements.txt                             # Dependências do projeto
 - **Paho MQTT**: Para simulação de comunicação entre a aplicação e dispositivos.
 - **SQLite**: Para armazenamento dos dados do consumo energético e eventos dos dispositivos.
 - **Plotly**: Para criação de gráficos interativos.
+- **R**: Para análise estatística dos dados.
 - **Python 3.x**: Linguagem de programação utilizada para implementar toda a lógica do sistema.
 
 ---
 
 ## Requisitos
 
-Certifique-se de ter o Python 3.x instalado. Instale as dependências do projeto com o seguinte comando:
+Certifique-se de ter as ferramentas necessárias instaladas:
 
-```bash
-pip install -r requirements.txt
-```
+- **Python 3.x**
+- **R** (com o mirror <https://cran-r.c3sl.ufpr.br/> configurado)
+- Dependências do projeto Python:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ---
 
@@ -108,14 +119,30 @@ O dashboard oferece:
 
 ---
 
-### 4. Fluxo de Dados
+### 4. Executando a Análise Estatística com R
+
+Para realizar a análise exploratória de dados com R, siga os passos:
+
+1. Navegue até a pasta `scr/`.
+2. Certifique-se de ter o R instalado.
+3. Execute o seguinte comando:
+   ```bash
+   Rscript analysis.r
+   ```
+
+Essa análise utiliza dados de eficiência energética fornecidos pela ANEEL para identificar padrões e propor soluções sustentáveis.
+
+---
+
+### 5. Fluxo de Dados
 
 1. **MQTT**: O script `mqtt.py` envia eventos simulados para o broker MQTT.
 2. **Banco de Dados**: Os eventos são salvos no SQLite para análise.
 3. **Interface**: O Streamlit exibe as métricas, gráficos e relatórios com base nos dados coletados.
+4. **R**: Executa análises estatísticas detalhadas para identificar padrões de consumo energético.
 
 ---
 
 ## Conclusão
 
-Este sistema foi projetado para otimizar o consumo de energia em residências, monitorar dados históricos e oferecer análises detalhadas. Ele combina tecnologia moderna (MQTT, Streamlit) com visualizações interativas para proporcionar insights práticos e eficientes. Ideal para residências ou pequenos negócios interessados em reduzir custos e melhorar a eficiência energética.
+Este sistema foi projetado para integrar tecnologias modernas (MQTT, Streamlit e R) em uma solução completa para monitoramento, análise e otimização do consumo energético. Além disso, incorpora análises estatísticas detalhadas para identificar padrões e propor ações sustentáveis no setor energético. Ideal para residências, pequenas empresas e estudos acadêmicos.

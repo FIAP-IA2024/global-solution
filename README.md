@@ -38,16 +38,16 @@ ctwp/
 └── mqtt.py                                         # Simulação de comunicação via MQTT
 
 scr/
-├── renv/                                           # Diretório do ambiente isolado R (gerenciado pelo renv)
 ├── outputs/                                        # Gráficos gerados pelo script R
 ├── projetos-eficiencia-energetica-empresa.csv      # Dados de empresas
 ├── projetos-eficiencia-energetica-equipamento.csv  # Dados de equipamentos
 ├── projetos-eficiencia-energetica-uso-final.csv    # Dados de uso final
 ├── analysis.r                                      # Script R para análise exploratória
-├── main.py                                         # Aplicação principal do Streamlit para exibir gráficos e executar o script R
-├── .Rprofile                                       # Configurações para inicialização do ambiente R
-└── renv.lock                                       # Arquivo de bloqueio do renv para reproduzir o ambiente R
+└── main.py                                         # Aplicação principal do Streamlit para exibir gráficos e executar o script R
 
+renv/                                               # Diretório do ambiente isolado R (gerenciado pelo renv)
+.Rprofile                                           # Configurações para inicialização do ambiente R
+renv.lock                                           # Arquivo de bloqueio do renv para reproduzir o ambiente R
 dashboard.py                                        # Dashboard unificado para CTWP, CDS e SCR
 requirements.txt                                    # Dependências do projeto
 ```

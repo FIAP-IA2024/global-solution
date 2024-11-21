@@ -121,7 +121,7 @@ grafico_dispersao <- ggplot(empresa_data, aes(x = VlrCustoTotal, y = VlrEnergiaE
 
 # Exibir e salvar gráfico
 print(grafico_dispersao)
-ggsave("outputs/investimento_vs_economia_energia.png", plot = grafico_dispersao, width = 10, height = 6)
+ggsave("scr/outputs/investimento_vs_economia_energia.png", plot = grafico_dispersao, width = 10, height = 6)
 
 # Análise de Frequência de Uso por Tipo de Equipamento
 equipamento_frequencia <- equipamento_data %>%

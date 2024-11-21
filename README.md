@@ -2,6 +2,10 @@
 
 Este projeto tem como objetivo fornecer uma solução para o **gerenciamento e otimização do consumo energético** em residências, utilizando **Streamlit** para visualização, **MQTT** para comunicação, **SQLite** como banco de dados para armazenar os dados gerados e **R** para análise estatística. A aplicação monitora, em tempo real, o consumo de energia, as tarifas de energia, e gera relatórios de eficiência energética. O sistema também analisa padrões e propõe soluções sustentáveis com base em dados exploratórios.
 
+## Demonstração no YouTube
+
+[![Assista no YouTube](https://img.youtube.com/vi/EPctkxhwnlY/0.jpg)](https://youtu.be/EPctkxhwnlY)
+
 ---
 
 ## Funcionalidades

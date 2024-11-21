@@ -22,30 +22,34 @@ A estrutura do projeto é organizada da seguinte forma:
 ```bash
 cds/
 ├── data-source/
-│   └── br_mme_consumo_energia_eletrica.csv  # Dados históricos do consumo de energia no Brasil
+│   └── br_mme_consumo_energia_eletrica.csv         # Dados históricos do consumo de energia no Brasil
 ├── database/
-│   ├── init.sql                             # Script SQL para inicializar o banco de dados
-│   └── data.db                              # Banco de dados SQLite (gerado automaticamente)
-├── database.py                              # Funções para interação com o banco de dados
-└── main.py                                  # Análise histórica e relatórios do consumo de energia no Brasil
+│   ├── init.sql                                    # Script SQL para inicializar o banco de dados
+│   └── data.db                                     # Banco de dados SQLite (gerado automaticamente)
+├── database.py                                     # Funções para interação com o banco de dados
+└── main.py                                         # Análise histórica e relatórios do consumo de energia no Brasil
 
 ctwp/
 ├── database/
-│   ├── init.sql                             # Script SQL para inicializar o banco de dados
-│   └── data.db                              # Banco de dados SQLite (gerado automaticamente)
-├── database.py                              # Funções para interação com o banco de dados
-├── main.py                                  # Aplicação principal do Streamlit para eficiência energética
-└── mqtt.py                                  # Simulação de comunicação via MQTT
+│   ├── init.sql                                    # Script SQL para inicializar o banco de dados
+│   └── data.db                                     # Banco de dados SQLite (gerado automaticamente)
+├── database.py                                     # Funções para interação com o banco de dados
+├── main.py                                         # Aplicação principal do Streamlit para eficiência energética
+└── mqtt.py                                         # Simulação de comunicação via MQTT
 
 scr/
-├── analysis.r                               # Script R para análise exploratória
-├── projetos-eficiencia-energetica-empresa.csv  # Dados de empresas
+├── renv/                                           # Diretório do ambiente isolado R (gerenciado pelo renv)
+├── outputs/                                        # Gráficos gerados pelo script R
+├── projetos-eficiencia-energetica-empresa.csv      # Dados de empresas
 ├── projetos-eficiencia-energetica-equipamento.csv  # Dados de equipamentos
-├── projetos-eficiencia-energetica-uso-final.csv  # Dados de uso final
-└── outputs/                                 # Gráficos gerados pelo script R
+├── projetos-eficiencia-energetica-uso-final.csv    # Dados de uso final
+├── analysis.r                                      # Script R para análise exploratória
+├── main.py                                         # Aplicação principal do Streamlit para exibir gráficos e executar o script R
+├── .Rprofile                                       # Configurações para inicialização do ambiente R
+└── renv.lock                                       # Arquivo de bloqueio do renv para reproduzir o ambiente R
 
-dashboard.py                                 # Dashboard unificado para CTWP, CDS e SCR
-requirements.txt                             # Dependências do projeto
+dashboard.py                                        # Dashboard unificado para CTWP, CDS e SCR
+requirements.txt                                    # Dependências do projeto
 ```
 
 ---

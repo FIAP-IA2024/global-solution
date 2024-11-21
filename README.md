@@ -1,6 +1,6 @@
 # Global Solution
 
-Este projeto tem como objetivo fornecer uma solução para o **gerenciamento e otimização do consumo energético** em residências, utilizando **Streamlit** para visualização, **MQTT** para comunicação e **SQLite** como banco de dados para armazenar os dados gerados. A aplicação monitora, em tempo real, o consumo de energia, as tarifas de energia, e gera relatórios de eficiência energética. O sistema permite a análise do consumo por zona e dispositivo, além de possibilitar a visualização de gráficos detalhados.
+Este projeto tem como objetivo fornecer uma solução para o **gerenciamento e otimização do consumo energético** em residências, utilizando **Streamlit** para visualização, **MQTT** para comunicação, **SQLite** como banco de dados para armazenar os dados gerados e **R** para análise estatística. A aplicação monitora, em tempo real, o consumo de energia, as tarifas de energia, e gera relatórios de eficiência energética. O sistema também analisa padrões e propõe soluções sustentáveis com base em dados exploratórios.
 
 ---
 
@@ -41,9 +41,10 @@ scr/
 ├── analysis.r                               # Script R para análise exploratória
 ├── projetos-eficiencia-energetica-empresa.csv  # Dados de empresas
 ├── projetos-eficiencia-energetica-equipamento.csv  # Dados de equipamentos
-└── projetos-eficiencia-energetica-uso-final.csv  # Dados de uso final
+├── projetos-eficiencia-energetica-uso-final.csv  # Dados de uso final
+└── outputs/                                 # Gráficos gerados pelo script R
 
-dashboard.py                                 # Dashboard unificado para CTWP e CDS
+dashboard.py                                 # Dashboard unificado para CTWP, CDS e SCR
 requirements.txt                             # Dependências do projeto
 ```
 
@@ -55,7 +56,7 @@ requirements.txt                             # Dependências do projeto
 - **Paho MQTT**: Para simulação de comunicação entre a aplicação e dispositivos.
 - **SQLite**: Para armazenamento dos dados do consumo energético e eventos dos dispositivos.
 - **Plotly**: Para criação de gráficos interativos.
-- **R**: Para análise estatística dos dados.
+- **R**: Para análise estatística dos dados de eficiência energética.
 - **Python 3.x**: Linguagem de programação utilizada para implementar toda a lógica do sistema.
 
 ---
@@ -116,21 +117,15 @@ streamlit run dashboard.py
 O dashboard oferece:
 - **CTWP**: Interface para gerenciamento e otimização de consumo energético em residências.
 - **CDS**: Análise histórica do consumo de energia elétrica no Brasil.
+- **SCR**: Análise estatística e exploração de dados de eficiência energética fornecidos pela ANEEL.
 
 ---
 
 ### 4. Executando a Análise Estatística com R
 
-Para realizar a análise exploratória de dados com R, siga os passos:
+Após iniciar o dashboard principal, navegue até a aba **SCR** e clique no botão **"Executar Script R"**.
 
-1. Navegue até a pasta `scr/`.
-2. Certifique-se de ter o R instalado.
-3. Execute o seguinte comando:
-   ```bash
-   Rscript analysis.r
-   ```
-
-Essa análise utiliza dados de eficiência energética fornecidos pela ANEEL para identificar padrões e propor soluções sustentáveis.
+Os gráficos gerados serão exibidos diretamente na aba, utilizando dados de eficiência energética fornecidos pela ANEEL para identificar padrões e propor soluções sustentáveis.
 
 ---
 

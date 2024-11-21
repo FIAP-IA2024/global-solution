@@ -2,8 +2,6 @@
 
 cds/database/data.db
 ctwp/database/data.db
-scr/outputs/*
-!scr/outputs/.gitkeep
 
 Rplots.pdf
 __pycache__

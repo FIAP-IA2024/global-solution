@@ -47,6 +47,8 @@ ctwp/
 ├── database/
 │   ├── init.sql                                    # Script SQL para inicializar o banco de dados
 │   └── data.db                                     # Banco de dados SQLite (gerado automaticamente)
+│   ├── data-model.png                              # Imagem da modelagem do banco de dados
+│   └── data-model.xml                              # XML do SQL Designer (pode ser importado em https://sql.toad.cz/)
 ├── database.py                                     # Funções para interação com o banco de dados
 ├── main.py                                         # Aplicação principal do Streamlit para eficiência energética
 └── mqtt.py                                         # Simulação de comunicação via MQTT
@@ -56,6 +58,8 @@ scr/
 ├── projetos-eficiencia-energetica-empresa.csv      # Dados de empresas
 ├── projetos-eficiencia-energetica-equipamento.csv  # Dados de equipamentos
 ├── projetos-eficiencia-energetica-uso-final.csv    # Dados de uso final
+├── analysis.html                                   # Análise em HTML gerada pelo Jupyter Notebook
+├── analysis.ipynb                                  # Jupyter Notebook com a análise exploratória
 ├── analysis.r                                      # Script R para análise exploratória
 └── main.py                                         # Aplicação principal do Streamlit para exibir gráficos e executar o script R
 

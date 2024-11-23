@@ -40,6 +40,8 @@ cds/
 ├── database/
 │   ├── init.sql                                    # Script SQL para inicializar o banco de dados
 │   └── data.db                                     # Banco de dados SQLite (gerado automaticamente)
+│   ├── data-model.png                              # Imagem da modelagem do banco de dados
+│   └── data-model.xml                              # XML do SQL Designer (pode ser importado em https://sql.toad.cz/)
 ├── database.py                                     # Funções para interação com o banco de dados
 └── main.py                                         # Análise histórica e relatórios do consumo de energia no Brasil
 
@@ -155,7 +157,7 @@ O circuito foi desenvolvido no simulador Wokwi e pode ser acessado diretamente n
 
 1. Acesse o link do Wokwi.
 2. Clique em "Start Simulation" para iniciar.
-3. O ESP32 enviará eventos simulados para o broker MQTT, que serão consumidos pelo script Python `ctwp/mqtt.py`.
+3. O ESP32 irá mostrar os eventos simulados que enviaria para o broker MQTT, essa comunicação é simulada pelo script Python `ctwp/mqtt.py`.
 
 Os arquivos do circuito estão no diretório `aicss/`.
 

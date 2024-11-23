@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://sql.toad.cz/ -->
+<sql>
+  <table x="150" y="50" name="state">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="code" null="0" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="name" null="0" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+
+  <table x="450" y="50" name="consumption_type">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="name" null="0" autoincrement="0">
+      <datatype>TEXT</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+
+  <table x="300" y="250" name="energy_data">
+    <row name="id" null="0" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="year" null="0" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="month" null="0" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="state_id" null="0" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="state" row="id" />
+    </row>
+    <row name="consumption_type_id" null="0" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="consumption_type" row="id" />
+    </row>
+    <row name="consumption" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="consumer_count" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+</sql>

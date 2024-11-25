@@ -8,25 +8,6 @@ CSV_PATH = "./cds/data-source/br_mme_consumo_energia_eletrica.csv"
 DB_INITIALIZED = False
 
 
-def initialize_database():
-    if not os.path.exists(DB_PATH) or os.stat(DB_PATH).st_size == 0:
-        with open(INIT_SQL_PATH, "r") as sql_file:
-            sql_script = sql_file.read()
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
-        cursor.executescript(sql_script)
-        connection.commit()
-        connection.close()
-
-
-def connect():
-    global DB_INITIALIZED
-    if not DB_INITIALIZED:
-        initialize_database()
-        DB_INITIALIZED = True
-    return sqlite3.connect(DB_PATH)
-
-
 def load_csv_to_database():
     connection = connect()
     cursor = connection.cursor()
@@ -74,7 +55,26 @@ def load_csv_to_database():
     connection.close()
 
 
-# Useful queries
+def initialize_database():
+    if not os.path.exists(DB_PATH) or os.stat(DB_PATH).st_size == 0:
+        with open(INIT_SQL_PATH, "r") as sql_file:
+            sql_script = sql_file.read()
+        connection = sqlite3.connect(DB_PATH)
+        cursor = connection.cursor()
+        cursor.executescript(sql_script)
+        connection.commit()
+        connection.close()
+        load_csv_to_database()
+
+
+def connect():
+    global DB_INITIALIZED
+    if not DB_INITIALIZED:
+        initialize_database()
+        DB_INITIALIZED = True
+    return sqlite3.connect(DB_PATH)
+
+
 def get_total_consumption_by_year():
     connection = connect()
     query = """
